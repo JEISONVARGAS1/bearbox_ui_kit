@@ -5,8 +5,10 @@ class UserModel {
   String email;
   String image;
   String phone;
+  String gender;
   String address;
   String documentId;
+  DateTime birthday;
   DateTime dateCreate;
   DateTime dateUpdate;
   DocumentReference? id;
@@ -19,7 +21,9 @@ class UserModel {
     required this.image,
     required this.email,
     required this.phone,
+    required this.gender,
     required this.address,
+    required this.birthday,
     required this.documentId,
     required this.dateUpdate,
     required this.dateCreate,
@@ -33,12 +37,14 @@ class UserModel {
         email: json["email"] ?? "",
         image: json["image"] ?? "",
         phone: json["phone"] ?? "",
+        gender: json["gender"] ?? "",
         address: json["address"] ?? "",
         documentId: json["documentId"] ?? "",
-        priceSubscription: json["price_subscription"] ?? 0.0,
         dateCreate: json["date_create"].toDate(),
         dateUpdate: json["date_update"].toDate(),
+        priceSubscription: json["price_subscription"] ?? 0.0,
         addressDescription: json["address_description"] ?? "",
+        birthday: json["birthday"]?.toDate() ?? DateTime.now(),
       );
 
   factory UserModel.init() => UserModel(
@@ -46,10 +52,12 @@ class UserModel {
         image: "",
         email: "",
         phone: "",
+        gender: "",
         address: "",
         documentId: "",
         priceSubscription: 0.0,
         addressDescription: "",
+        birthday: DateTime.now(),
         dateCreate: DateTime.now(),
         dateUpdate: DateTime.now(),
       );
@@ -59,7 +67,9 @@ class UserModel {
         "email": email,
         "image": image,
         "phone": phone,
+        "gender": gender,
         "address": address,
+        "birthday": birthday,
         "documentId": documentId,
         "date_create": dateCreate,
         "date_update": dateUpdate,
@@ -71,9 +81,11 @@ class UserModel {
         "name": name,
         "email": email,
         "phone": phone,
+        "gender": gender,
         "address": address,
-        "date_update": dateUpdate,
+        "birthday": birthday,
         "documentId": documentId,
+        "date_update": dateUpdate,
         "price_subscription": priceSubscription,
         "address_description": addressDescription,
       };
@@ -83,8 +95,10 @@ class UserModel {
     String? email,
     String? image,
     String? phone,
+    String? gender,
     String? address,
     String? documentId,
+    DateTime? birthday,
     DateTime? dateCreate,
     DateTime? dateUpdate,
     DocumentReference? id,
@@ -97,7 +111,9 @@ class UserModel {
         image: image ?? this.image,
         email: email ?? this.email,
         phone: phone ?? this.phone,
+        gender: gender ?? this.gender,
         address: address ?? this.address,
+        birthday: birthday ?? this.birthday,
         dateUpdate: dateUpdate ?? this.dateUpdate,
         documentId: documentId ?? this.documentId,
         dateCreate: dateCreate ?? this.dateCreate,
