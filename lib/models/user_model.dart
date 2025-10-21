@@ -45,12 +45,12 @@ class UserModel {
         address: json["address"] ?? "",
         isAdmin: json["isAdmin"] ?? false,
         documentId: json["documentId"] ?? "",
-        dateCreate: json["date_create"].toDate(),
-        dateUpdate: json["date_update"].toDate(),
         priceSubscription: json["price_subscription"] ?? 0.0,
         dateSubscription: json["date_subscription"]?.toDate(),
         addressDescription: json["address_description"] ?? "",
         birthday: json["birthday"]?.toDate() ?? DateTime.now(),
+        dateUpdate: json["date_update"]?.toDate() ?? DateTime.now(),
+        dateCreate: json["date_create"]?.toDate() ?? DateTime.now(),
       );
 
   factory UserModel.init() => UserModel(
