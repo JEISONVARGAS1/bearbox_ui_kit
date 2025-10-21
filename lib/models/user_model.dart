@@ -13,6 +13,7 @@ class UserModel {
   DateTime dateUpdate;
   DocumentReference? id;
   double priceSubscription;
+  DateTime dateSubscription;
   String addressDescription;
 
   UserModel({
@@ -27,6 +28,7 @@ class UserModel {
     required this.documentId,
     required this.dateUpdate,
     required this.dateCreate,
+    required this.dateSubscription,
     required this.priceSubscription,
     required this.addressDescription,
   });
@@ -43,6 +45,7 @@ class UserModel {
         dateCreate: json["date_create"].toDate(),
         dateUpdate: json["date_update"].toDate(),
         priceSubscription: json["price_subscription"] ?? 0.0,
+        dateSubscription: json["date_subscription"].toDate(),
         addressDescription: json["address_description"] ?? "",
         birthday: json["birthday"]?.toDate() ?? DateTime.now(),
       );
@@ -60,6 +63,7 @@ class UserModel {
         birthday: DateTime.now(),
         dateCreate: DateTime.now(),
         dateUpdate: DateTime.now(),
+        dateSubscription: DateTime.now(),
       );
 
   Map<String, dynamic> toJson() => {
@@ -73,6 +77,7 @@ class UserModel {
         "documentId": documentId,
         "date_create": dateCreate,
         "date_update": dateUpdate,
+        "date_subscription": dateSubscription,
         "price_subscription": priceSubscription,
         "address_description": addressDescription,
       };
@@ -86,6 +91,7 @@ class UserModel {
         "birthday": birthday,
         "documentId": documentId,
         "date_update": dateUpdate,
+        "date_subscription": dateSubscription,
         "price_subscription": priceSubscription,
         "address_description": addressDescription,
       };
@@ -103,6 +109,7 @@ class UserModel {
     DateTime? dateUpdate,
     DocumentReference? id,
     double? priceSubscription,
+    DateTime? dateSubscription,
     String? addressDescription,
   }) =>
       UserModel(
@@ -117,6 +124,7 @@ class UserModel {
         dateUpdate: dateUpdate ?? this.dateUpdate,
         documentId: documentId ?? this.documentId,
         dateCreate: dateCreate ?? this.dateCreate,
+        dateSubscription: dateSubscription ?? this.dateSubscription,
         priceSubscription: priceSubscription ?? this.priceSubscription,
         addressDescription: addressDescription ?? this.addressDescription,
       );
