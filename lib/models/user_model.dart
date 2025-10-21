@@ -14,8 +14,8 @@ class UserModel {
   DateTime dateUpdate;
   DocumentReference? id;
   double priceSubscription;
-  DateTime dateSubscription;
   String addressDescription;
+  DateTime? dateSubscription;
 
   UserModel({
     this.id,
@@ -25,12 +25,12 @@ class UserModel {
     required this.phone,
     required this.gender,
     required this.isAdmin,
+    this.dateSubscription,
     required this.address,
     required this.birthday,
     required this.documentId,
     required this.dateUpdate,
     required this.dateCreate,
-    required this.dateSubscription,
     required this.priceSubscription,
     required this.addressDescription,
   });
@@ -48,7 +48,7 @@ class UserModel {
         dateCreate: json["date_create"].toDate(),
         dateUpdate: json["date_update"].toDate(),
         priceSubscription: json["price_subscription"] ?? 0.0,
-        dateSubscription: json["date_subscription"].toDate(),
+        dateSubscription: json["date_subscription"]?.toDate(),
         addressDescription: json["address_description"] ?? "",
         birthday: json["birthday"]?.toDate() ?? DateTime.now(),
       );
@@ -63,11 +63,11 @@ class UserModel {
         isAdmin: false,
         documentId: "",
         priceSubscription: 0.0,
+        dateSubscription: null,
         addressDescription: "",
         birthday: DateTime.now(),
         dateCreate: DateTime.now(),
         dateUpdate: DateTime.now(),
-        dateSubscription: DateTime.now(),
       );
 
   Map<String, dynamic> toJson() => {
