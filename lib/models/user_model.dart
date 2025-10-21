@@ -6,9 +6,11 @@ class UserModel {
   String image;
   String phone;
   String address;
+  String documentId;
   DateTime dateCreate;
   DateTime dateUpdate;
   DocumentReference? id;
+  double priceSubscription;
   String addressDescription;
 
   UserModel({
@@ -18,8 +20,10 @@ class UserModel {
     required this.email,
     required this.phone,
     required this.address,
-    required this.dateCreate,
+    required this.documentId,
     required this.dateUpdate,
+    required this.dateCreate,
+    required this.priceSubscription,
     required this.addressDescription,
   });
 
@@ -30,6 +34,8 @@ class UserModel {
         image: json["image"] ?? "",
         phone: json["phone"] ?? "",
         address: json["address"] ?? "",
+        documentId: json["documentId"] ?? "",
+        priceSubscription: json["price_subscription"] ?? 0.0,
         dateCreate: json["date_create"].toDate(),
         dateUpdate: json["date_update"].toDate(),
         addressDescription: json["address_description"] ?? "",
@@ -41,6 +47,8 @@ class UserModel {
         email: "",
         phone: "",
         address: "",
+        documentId: "",
+        priceSubscription: 0.0,
         addressDescription: "",
         dateCreate: DateTime.now(),
         dateUpdate: DateTime.now(),
@@ -52,8 +60,10 @@ class UserModel {
         "image": image,
         "phone": phone,
         "address": address,
+        "documentId": documentId,
         "date_create": dateCreate,
         "date_update": dateUpdate,
+        "price_subscription": priceSubscription,
         "address_description": addressDescription,
       };
 
@@ -63,6 +73,8 @@ class UserModel {
         "phone": phone,
         "address": address,
         "date_update": dateUpdate,
+        "documentId": documentId,
+        "price_subscription": priceSubscription,
         "address_description": addressDescription,
       };
 
@@ -72,9 +84,11 @@ class UserModel {
     String? image,
     String? phone,
     String? address,
+    String? documentId,
     DateTime? dateCreate,
     DateTime? dateUpdate,
     DocumentReference? id,
+    double? priceSubscription,
     String? addressDescription,
   }) =>
       UserModel(
@@ -85,7 +99,9 @@ class UserModel {
         phone: phone ?? this.phone,
         address: address ?? this.address,
         dateUpdate: dateUpdate ?? this.dateUpdate,
+        documentId: documentId ?? this.documentId,
         dateCreate: dateCreate ?? this.dateCreate,
+        priceSubscription: priceSubscription ?? this.priceSubscription,
         addressDescription: addressDescription ?? this.addressDescription,
       );
 }
