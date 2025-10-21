@@ -4,6 +4,7 @@ class UserModel {
   String name;
   String email;
   String image;
+  bool isAdmin;
   String phone;
   String gender;
   String address;
@@ -23,6 +24,7 @@ class UserModel {
     required this.email,
     required this.phone,
     required this.gender,
+    required this.isAdmin,
     required this.address,
     required this.birthday,
     required this.documentId,
@@ -40,6 +42,7 @@ class UserModel {
         image: json["image"] ?? "",
         phone: json["phone"] ?? "",
         gender: json["gender"] ?? "",
+        isAdmin: json["isAdmin"] ?? "",
         address: json["address"] ?? "",
         documentId: json["documentId"] ?? "",
         dateCreate: json["date_create"].toDate(),
@@ -57,6 +60,7 @@ class UserModel {
         phone: "",
         gender: "",
         address: "",
+        isAdmin: false,
         documentId: "",
         priceSubscription: 0.0,
         addressDescription: "",
@@ -73,6 +77,7 @@ class UserModel {
         "phone": phone,
         "gender": gender,
         "address": address,
+        "isAdmin": isAdmin,
         "birthday": birthday,
         "documentId": documentId,
         "date_create": dateCreate,
@@ -87,6 +92,7 @@ class UserModel {
         "email": email,
         "phone": phone,
         "gender": gender,
+        "isAdmin": isAdmin,
         "address": address,
         "birthday": birthday,
         "documentId": documentId,
@@ -101,6 +107,7 @@ class UserModel {
     String? email,
     String? image,
     String? phone,
+    bool? isAdmin,
     String? gender,
     String? address,
     String? documentId,
@@ -116,9 +123,10 @@ class UserModel {
         id: id ?? this.id,
         name: name ?? this.name,
         image: image ?? this.image,
-        email: email ?? this.email,
         phone: phone ?? this.phone,
+        email: email ?? this.email,
         gender: gender ?? this.gender,
+        isAdmin: isAdmin ?? this.isAdmin,
         address: address ?? this.address,
         birthday: birthday ?? this.birthday,
         dateUpdate: dateUpdate ?? this.dateUpdate,
